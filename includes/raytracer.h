@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raytracer.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sunhwang <sunhwang@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: chanwjeo <chanwjeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 08:39:59 by chanwjeo          #+#    #+#             */
-/*   Updated: 2023/02/07 14:01:23 by sunhwang         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:44:27 by chanwjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void		get_closest_hit_obj(t_list *objs, t_ray ray, \
 t_hit *closest_hit, t_obj *closest_obj);
 
 //phong
-bool		in_shadow(t_list *objs, t_ray light_ray);
 t_color3	point_light_get(t_info *info, const t_l *light, \
 const t_hit closest_hit, const t_obj closest_obj);
 

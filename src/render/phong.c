@@ -6,7 +6,7 @@
 /*   By: chanwjeo <chanwjeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:01:17 by sunhwang          #+#    #+#             */
-/*   Updated: 2023/02/08 13:47:47 by chanwjeo         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:45:50 by chanwjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 #include "rt_math.h"
 #include "window.h"
 
-bool	in_shadow(t_list *objs, t_ray light_ray)
+bool	in_shadow(t_list *objs, t_ray light_ray, double point)
 {
 	t_hit	closest_hit;
 	t_obj	closest_obj;
 
 	get_closest_hit_obj(objs, light_ray, &closest_hit, &closest_obj);
-	return (closest_hit.d >= 0.0);
+	return (closest_hit.d >= 0.0 && closest_hit.d < point);
 }
 
 static t_color3	get_specular(const t_vec3 ray_normal, const t_hit hit, \
@@ -48,7 +48,7 @@ const t_hit closest_hit, const t_obj closest_obj)
 
 	light_ray = get_ray(v_sum(closest_hit.point, \
 	v_mul_double(closest_hit.normal, 0.001)), light_dir);
-	if (in_shadow(info->objs, light_ray))
+	if (in_shadow(info->objs, light_ray, v_len(v_minus(light->coor, closest_hit.point))))
 		return (black_v3());
 	kd = fmax(v_dot(closest_hit.normal, light_dir), 0.0);
 	diffuse = v_divide(light->colors, 255.0);
