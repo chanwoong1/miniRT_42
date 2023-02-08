@@ -1,0 +1,9 @@
+.vscode
+obj
+test
+*.dylib
+*.a
+miniRT
+*.swift*
+src/glm_test
+result
