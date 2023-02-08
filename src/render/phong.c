@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phong.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sunhwang <sunhwang@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: chanwjeo <chanwjeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:01:17 by sunhwang          #+#    #+#             */
-/*   Updated: 2023/02/07 13:49:10 by sunhwang         ###   ########.fr       */
+/*   Updated: 2023/02/08 13:47:47 by chanwjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ const t_l *light, const t_vec3 light_dir)
 	v_dot(hit.normal, light_dir)), 2), light_dir);
 	const t_vec3	view_dir = vunit(v_mul_double(ray_normal, -1));
 
-	spec = pow(fmax(v_dot(view_dir, reflect), 0.0), 8);
+	spec = pow(fmax(v_dot(view_dir, reflect), 0.0), 2);
 	specular = v_mul_double(v_mul_double(light->colors, 1.0f), spec);
 	return (specular);
 }

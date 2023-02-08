@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_ray_collision.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yje <yje@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: chanwjeo <chanwjeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:54:17 by chanwjeo          #+#    #+#             */
-/*   Updated: 2023/02/04 17:18:08 by yje              ###   ########.fr       */
+/*   Updated: 2023/02/08 13:57:28 by chanwjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_hit	check_ray_collision_plane(t_ray ray, t_obj *plane)
 		return (hit);
 	numrator = v_dot(v_minus(plane->coor, ray.orig), plane->normal);
 	root = numrator / denom;
-	if (root < 0.001 || root > 10000)
+	if (root < 0.001 || root > 1000)
 		return (hit);
 	hit.d = root;
 	hit.point = ray_at(ray, root);

@@ -6,7 +6,7 @@
 /*   By: chanwjeo <chanwjeo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 18:27:30 by sunhwang          #+#    #+#             */
-/*   Updated: 2023/02/01 16:27:04 by chanwjeo         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:24:14 by chanwjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,5 @@ int	binding_key_events(int key, t_info *info)
 	binding_key_event_camera(key, info);
 	binding_key_event_light(key, info);
 	binding_key_event_objs(key, info);
-	system("leaks miniRT");
 	return (0);
 }

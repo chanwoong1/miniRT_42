@@ -50,15 +50,8 @@ RENDER_SRC		= raytracer hit ray check_ray_collision check_ray_collision_cylinder
 ROTATE_SRC		= rotate rotate_init parallel_move rotate_minus
 WINDOW_SRC		= color draw_image draw_xpm init_window init_xpm key_hook mouse_hook window_hooks print_terminal move_camera move_camera_rotation move_light move_object move_object_rotation move_key
 
-# BONUS SRC
-ifeq (,$(findstring bonus,$(MAKECMDGOALS)))
 THREAD_SRC		= init_thread
 PARSE_SRC		+= check_option_count
-
-else
-THREAD_SRC		= init_thread_bonus
-PARSE_SRC		+= check_option_count_bonus
-endif
 
 # NOTE : Add to SRC here
 # ------------------------------------------------------ #
@@ -147,6 +140,6 @@ re:	fclean
 	@echo "$(CUSTOM)Cleaned and rebuilt miniRT.$(DEF_COLOR)"
 
 norm:
-	norminette $(ERROR_DIR) $(MAIN_DIR) $(MATH_DIR) $(PARSE_DIR) $(RENDER_DIR) $(ROTATE_DIR) $(THREAD_DIR) $(WINDOW_DIR) ./includes $(LIBFT_DIR)/include
+	norminette $(ERROR_DIR) $(MAIN_DIR) $(MATH_DIR) $(PARSE_DIR) $(RENDER_DIR) $(ROTATE_DIR) $(THREAD_DIR) $(WINDOW_DIR) ./includes $(LIBFT_DIR)include
 
 .PHONY: all clean fclean re norm
